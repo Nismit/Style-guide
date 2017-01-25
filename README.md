@@ -70,44 +70,44 @@ Use partial Sass files, all partial files should include `style.scss`
 
 1. Property declarations
 
-List all standard property declarations, anything that isn't an `@include` or a nested selector.
+  List all standard property declarations, anything that isn't an `@include` or a nested selector.
 
-```scss
-.parent {
-  border: 1px solid #000;
-  background-color: #fff;
-  //
-}
-```
+  ```scss
+  .parent {
+    border: 1px solid #000;
+    background-color: #fff;
+    //
+  }
+  ```
 
 2. `@include` declarations
 
-Grouping `@include`s at the end makes it easier to read the entire selector.
+  Grouping `@include`s at the end makes it easier to read the entire selector.
 
-```scss
-.parent {
-  border: 1px solid #000;
-  background-color: #fff;
-  @include transition(background 0.5s ease);
-  //
-}
-```
+  ```scss
+  .parent {
+    border: 1px solid #000;
+    background-color: #fff;
+    @include transition(background 0.5s ease);
+    //
+  }
+  ```
 
 3. Nested selectors
 
-Put a whitespace above a nested selector
+  Put a whitespace above a nested selector
 
-```scss
-.parent {
-  border: 1px solid #000;
-  background-color: #fff;
-  @include transition(background 0.5s ease);
+  ```scss
+  .parent {
+    border: 1px solid #000;
+    background-color: #fff;
+    @include transition(background 0.5s ease);
 
-  &__child {
-    //
+    &__child {
+      //
+    }
   }
-}
-```
+  ```
 
 ### Variables
 
