@@ -1,6 +1,7 @@
 # CSS / SASS Style Guide
 
 In personal CSS/SASS style guide in 2017, It will be updated constantly.
+It is influenced by [BEM](https://en.bem.info/), [OOCSS](http://oocss.org/), [SMACSS](https://smacss.com/) and [FLOCSS](https://github.com/hiloki/flocss)
 
 ## Objective
 
@@ -19,7 +20,7 @@ It's gonna be hard to maintain or expand after that, a new selector will be made
 
 - DO NOT USE ID SELECTOR(S)
 - Use 2 spaces for indentation
-- Use BEM naming convention for class name
+- Use BEM + SMACSS naming convention for class name
 - Put a space between class selector(s) and opening brace `{`
 - Put a space after `:` in properties
 - Put closing brace `}` on a new line
@@ -67,6 +68,47 @@ Use partial Sass files, all partial files should include `style.scss`
 
 ### Ordering of property declarations
 
+1. Property declarations
+
+List all standard property declarations, anything that isn't an `@include` or a nested selector.
+
+```scss
+.parent {
+  border: 1px solid #000;
+  background-color: #fff;
+  //
+}
+```
+
+2. `@include` declarations
+
+Grouping `@include`s at the end makes it easier to read the entire selector.
+
+```scss
+.parent {
+  border: 1px solid #000;
+  background-color: #fff;
+  @include transition(background 0.5s ease);
+  //
+}
+```
+
+3. Nested selectors
+
+Put a whitespace above a nested selector
+
+```scss
+.parent {
+  border: 1px solid #000;
+  background-color: #fff;
+  @include transition(background 0.5s ease);
+
+  &__child {
+    //
+  }
+}
+```
+
 ### Variables
 
 - Dash-cased variable names `$local-variable`
@@ -78,10 +120,33 @@ Use partial Sass files, all partial files should include `style.scss`
 If you repeat the code, you should make a mixin.
 Do not forget DRY and KISS principle.
 
+**File Name**
+`_mixin-name.scss`
+
+**Directory**
+`src/sass/mixin/`
+
 ### Nested Selectors
 
+Do not nest selectors more than three levels deep.
+
+```scss
+.parent {
+  // Block
+
+  &__child {
+    // Element
+
+    &--grandchild {
+      // Modifier
+    }
+  }
+}
+```
  
 ## Directory Structure
+
+Directory structure is based on　BEM + FLOCCSS
 
 - **foundation** set up for basic in CSS development
   - **base** normalize or reset file and initial file
@@ -124,7 +189,7 @@ src/sass
 │       └── _others.scss
 ├── layout
 │   ├── _footer.scss
-│   ├── _header.scss
+│   ├── _header.scss 
 │   └── _section.scss
 ├── mixin
 │   └── _example.scss
@@ -133,3 +198,11 @@ src/sass
 └── style.scss
 ```    
 
+## References
+
+- [BEM](https://en.bem.info/)
+- [OOCSS](http://oocss.org/)
+- [SMACSS](https://smacss.com/)
+- [FLOCSS](https://github.com/hiloki/flocss)
+- [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css#ordering-of-property-declarations)
+- [Primer](http://primercss.io/)
