@@ -5,8 +5,8 @@ It is influenced by [BEM](https://en.bem.info/), [OOCSS](http://oocss.org/), [SM
 
 ## Objective
 
-Nowadays, CSS files have been bigger than before.
-It's gonna be hard to maintain or expand after that, a new selector will be made. I'd like to avoid this thing, so I made this style guide for CSS/SASS development.
+Due to the fact that CSS files have been bigger and bigger, maintainig or expanding is harder.
+Eventually a new selector will be added over and over. To avoid this fact, I made this style guide for CSS/SASS development.
 
 - Consistency
 - Maintainable
